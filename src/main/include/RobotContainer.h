@@ -16,6 +16,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/filter/SlewRateLimiter.h>
 #include <frc/DutyCycleEncoder.h>
+#include <frc/PowerDistribution.h>
 
 #include "Constants.h"
 #include "subsystems/DriveSubsystem.h"
@@ -56,6 +57,9 @@ class RobotContainer {
   ExtensionSubsystem m_Extension{m_MainEncoder};
 
   frc::DutyCycleEncoder* m_MainEncoder;
+
+  
+  frc::PowerDistribution m_PDP{0, frc::PowerDistribution::ModuleType::kCTRE};
 
   // The chooser for the autonomous routines
   frc::SendableChooser<frc2::Command*> m_chooser;

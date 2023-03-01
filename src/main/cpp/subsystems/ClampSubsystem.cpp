@@ -4,7 +4,15 @@
 
 #include "subsystems/ClampSubsystem.h"
 
-ClampSubsystem::ClampSubsystem() = default;
+ClampSubsystem::ClampSubsystem(frc::PowerDistribution* PDP) : m_PDP(PDP) {}
 
 // This method will be called once per scheduler run
 void ClampSubsystem::Periodic() {}
+
+void ClampSubsystem::Run(double set) {
+    m_motor.Set(set);
+}
+
+double ClampSubsystem::GetCurrent() {
+  return m_PDP->GetCurrent(9);
+}
